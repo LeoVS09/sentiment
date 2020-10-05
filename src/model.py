@@ -1,5 +1,6 @@
 from tensorflow.keras import Sequential, layers, losses, optimizers
 
+
 def build_model(vocab_size):
     model = Sequential([
         layers.Embedding(vocab_size, 1000),

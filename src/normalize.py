@@ -7,6 +7,7 @@ encoder_filename = 'encoder/encoder'
 encoder_info_filename ='encoder/info.json'
 
 def load_encoder():
+    print('Loading encoder...')
     encoder = tfds.features.text.TokenTextEncoder.load_from_file(encoder_filename)
     vocab_size = None
     

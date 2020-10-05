@@ -18,17 +18,20 @@ TEXT_COLUMN = 'text'
 BATCH_SIZE = params['input']['batch_size']
 COLUMNS = ["target", "id", "date", "flag", "user", "text"]
 CHUNK_SIZE = 10 ** 3 # Read thousand records at once
+MAX_CHUNKS_COUNT = 1600
 
 def get_dataset_generator(file_path, display_progress=False):
     print('Start reading dataset from', train_dataset_path)
 
     bar = None
     if display_progress:
-        bar = ProgressBar(max_value=1600, max_error=False).start()
+        bar = ProgressBar(max_value=MAX_CHUNKS_COUNT, max_error=False).start()
     
     for i, chunk in enumerate(pd.read_csv(file_path, encoding = "ISO-8859-1", names=COLUMNS, chunksize=CHUNK_SIZE)):
         if bar != None:
             bar.update(i)
+        else:
+            print('read chunk', i, '/', MAX_CHUNKS_COUNT, '- {0:.0f}%'.format(i / MAX_CHUNKS_COUNT * 100))
 
         for item in chunk.index:
             text = chunk[TEXT_COLUMN][item]
@@ -58,6 +61,7 @@ def get_test_dataset(display_progress=False):
     return get_dataset(test_dataset_path, display_progress=display_progress) 
 
 def download():
+    print("Downloading datasets...")
     train_dataset = get_train_dataset()
     test_dataset = get_test_dataset()
 
