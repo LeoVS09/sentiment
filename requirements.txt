@@ -6,7 +6,7 @@ astunparse==1.6.3
 atpublic==2.0
 attrs==20.2.0
 backcall==0.2.0
-bleach==3.1.5
+bleach==3.3.0
 blis==0.4.1
 cachetools==4.1.0
 catalogue==1.0.0
