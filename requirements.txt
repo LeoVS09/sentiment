@@ -50,7 +50,7 @@ googleapis-common-protos==1.52.0
 grandalf==0.6
 grpcio==1.28.1
 h5py==2.10.0
-httplib2==0.18.1
+httplib2==0.19.0
 idna==2.6
 importlib-metadata==1.7.0
 ipykernel==5.3.4
