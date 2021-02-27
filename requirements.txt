@@ -19,7 +19,7 @@ colorama==0.4.3
 colorlover==0.3.0
 commonmark==0.9.1
 configobj==5.0.6
-cryptography==3.1
+cryptography==3.3.2
 cufflinks==0.17.3
 cymem==2.0.3
 dataclasses==0.7
